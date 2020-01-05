@@ -30,6 +30,7 @@
     float 삭제
     left:auto;
     right:4%;
+    position:absolute;
 }
 
 -전제삭제-
