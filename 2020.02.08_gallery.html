@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <title>갤러리 애니메이션</title>
+    <style>
+*{
+    padding:0;
+    margin:0;
+    text-decoration:none;
+}
+
+body {
+    background:#323232;
+}
+
+.gallery {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:470px;
+    height:600px;
+    overflow:hidden;
+    
+}
+.gallery:before,
+.gallery:after { 
+    content:"";
+    position:absolute;
+    right:5px;
+    bottom:5px;
+    width:55px;
+    height:55px;
+    transform:scale(0);
+    border-radius:100%;
+    transition:all .3s;
+}
+
+.gallery:before {
+    background: rgba(0,0,0,0.5);
+    transition:all .5s;
+}
+
+.gallery:after {
+    background:#fd3f01;
+    transition:all .5s .2s;
+}
+
+.img {
+    width:100%;
+    height:auto;
+}
+ 
+
+.gallery button {
+    position:absolute;
+    right:4px;
+    bottom:4px;
+    width:55px;
+    height:55px;
+    background-color: #323232;
+    border-radius: 100%;
+    border:none;
+    transition:all .3s;
+    z-index:1;
+    outline:    0;
+}
+
+.gallery.on button {
+    transform:rotate(135deg);
+}
+
+.gallery.on div {
+    opacity:1;
+    z-index: 1;
+    transition:all .5s .4s;
+}
+
+
+.gallery button:after {
+    content:'\e9c5';
+    font-family:'xeicon';
+    color:#fff;
+    font-size:18px;
+}
+
+.gallery div{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:70%;
+    opacity:0;
+}
+
+.hide {
+    display:none;
+}
+
+.gallery.on:before,
+.gallery.on:after {
+    transform:scale(30);
+
+}
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <a>
+            <img class="img" src="img/bg.jpg" alt="배경화면 이미지"/>
+        </a>
+        <button><span class="hide">더보기</span></button>
+        <div>
+            <strong>Lorem ipsum dolor sit amet consectetur </strong>
+            adipisicing elit. Vero iste beatae earum natus voluptas et 
+            deleniti debitis harum nesciunt! Autem rerum nemo veritatis accusantium, porro ipsam nisi ex consequuntur error!q
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $('.gallery button').on('click',function(){
+            $(this).parent().toggleClass('on');
+        });
+
+    </script>
+</body>
+</html>
