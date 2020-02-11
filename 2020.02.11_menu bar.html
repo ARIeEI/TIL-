@@ -1,217 +1,215 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            text-decoration: none;
-            list-style: none;
-        }
-
-        body,
-        html {
-            overflow-x: hidden;
-        }
-        .bg {
-            position:fixed;
-            width:100%;
-            height:100vh;
-            background-image: radial-gradient(ellipse, rgba(0,0,0,0)50%, rgba(0,0,0,0.2));
-            z-index:1;
-        }
-
-        .bg1 {
-            background: url(img/menu_bg.jpg)no-repeat center/cover;
-        }
-
-        .bg2 {
-            background: url(img/menu_bg2.jpg)no-repeat center/cover;
-        }
-
-        .bg3 {
-            background: url(img/menu_bg3.jpg)no-repeat center/cover;
-        }
-
-        .bg4 {
-            background: url(img/menu_bg4.jpg)no-repeat center/cover;
-        }
-
-        nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 50px;
-            line-height: 50px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        nav div {
-            position: relative;
-            display: flex;
-            width: 50%;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        nav div a {
-            flex: 1;
-            height: 100%;
-            text-align: center;
-            color: #d6d6d6;
-        }
-
-        nav div a>span {
-            position: relative;
-            display: block;
-        }
-
-        nav div a.on span:before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 30%;
-            width: 100%;
-            height: 150%;
-            color: #fff;
-            background-image: radial-gradient(ellipse, rgba(225, 225, 225, .3), transparent, transparent);
-            animation: size .15s linear alternate;
-        }
-
-        nav div>span {
-            position: absolute;
-            bottom: 0%;
-            left: 0;
-            width: calc(100% / 5);
-            opacity: 0;
-            transition: all 0.5s;
-            border-bottom: 3px solid rgba(243, 196, 160, .5);
-        }
-
-        nav div a:nth-child(1).on~span {
-            left: 0;
-            opacity: 1;
-        }
-
-        nav div a:nth-child(2).on~span {
-            left: calc(100% / 5);
-            opacity: 1;
-        }
-
-        nav div a:nth-child(3).on~span {
-            left: calc(100% / 5 * 2);
-            opacity: 1;
-        }
-
-        nav div a:nth-child(4).on~span {
-            left: calc(100% / 5 * 3);
-            opacity: 1;
-        }
-
-        nav div a:nth-child(5).on~span {
-            left: calc(100% / 5 * 4);
-            opacity: 1;
-        }
-
-
-        nav div a:nth-child(1)>span.on {
-            left: 0;
-            opacity: 1;
-        }
-
-        @keyframes size {
-            0% {
-                opacity: 0;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                list-style: none;
             }
 
-            100% {
+            body,
+            html {
+                overflow-x: hidden;
+            }
+            .bg {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                background-image: radial-gradient(ellipse, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2));
+                z-index: 1;
+            }
+
+            .bg1 {
+                background: url(img/menu_bg.jpg) no-repeat center/cover;
+            }
+
+            .bg2 {
+                background: url(img/menu_bg2.jpg) no-repeat center/cover;
+            }
+
+            .bg3 {
+                background: url(img/menu_bg3.jpg) no-repeat center/cover;
+            }
+
+            .bg4 {
+                background: url(img/menu_bg4.jpg) no-repeat center/cover;
+            }
+
+            nav {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                z-index: 1;
+            }
+
+            nav div {
+                position: relative;
+                display: flex;
+                width: 50%;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            nav div a {
+                flex: 1;
+                height: 100%;
+                text-align: center;
+                color: #d6d6d6;
+            }
+
+            nav div a > span {
+                position: relative;
+                display: block;
+            }
+
+            nav div a.on span:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 30%;
+                width: 100%;
+                height: 150%;
+                color: #fff;
+                background-image: radial-gradient(ellipse, rgba(225, 225, 225, 0.3), transparent, transparent);
+                animation: size 0.15s linear alternate;
+            }
+
+            nav div > span {
+                position: absolute;
+                bottom: 0%;
+                left: 0;
+                width: calc(100% / 5);
+                opacity: 0;
+                transition: all 0.5s;
+                border-bottom: 3px solid rgba(243, 196, 160, 0.5);
+            }
+
+            nav div a:nth-child(1).on ~ span {
+                left: 0;
                 opacity: 1;
             }
-        }
 
-        .position-relative {
-            position: relative;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-        }
+            nav div a:nth-child(2).on ~ span {
+                left: calc(100% / 5);
+                opacity: 1;
+            }
 
-        .position-absolute {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            clip: rect(0 auto auto 0);
-        }
+            nav div a:nth-child(3).on ~ span {
+                left: calc(100% / 5 * 2);
+                opacity: 1;
+            }
 
-        .position-fixed {
-            transform:translate3d(0,0,0);
-            position: fixed;
-            top:0;
-            left:0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-</head>
+            nav div a:nth-child(4).on ~ span {
+                left: calc(100% / 5 * 3);
+                opacity: 1;
+            }
 
-<body>
-    <section class="bg">
-        <nav>
-            <div>
-                <a class="on" href="#first"><span>1</span></a>
-                <a href="#sec"><span>2</span></a>
-                <a href="#third"><span>3</span></a>
-                <a href="#four"><span>4</span></a>
-                <a href="#four"><span>5</span></a>
-                <span class="light"></span>
+            nav div a:nth-child(5).on ~ span {
+                left: calc(100% / 5 * 4);
+                opacity: 1;
+            }
+
+            nav div a:nth-child(1) > span.on {
+                left: 0;
+                opacity: 1;
+            }
+
+            @keyframes size {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            .position-relative {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+            }
+
+            .position-absolute {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                clip: rect(0 auto auto 0);
+            }
+
+            .position-fixed {
+                transform: translate3d(0, 0, 0);
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="bg">
+            <nav>
+                <div>
+                    <a class="on" href="#first"><span>1</span></a>
+                    <a href="#sec"><span>2</span></a>
+                    <a href="#third"><span>3</span></a>
+                    <a href="#four"><span>4</span></a>
+                    <a href="#four"><span>5</span></a>
+                    <span class="light"></span>
+                </div>
+            </nav>
+        </section>
+        <section id="first" class="position-relative">
+            <div class="position-absolute">
+                <div class="position-fixed bg1"></div>
             </div>
-        </nav>
-    </section>
-    <section id="first" class="position-relative">
-        <div class="position-absolute">
-            <div class="position-fixed bg1"></div>
-        </div>
-    </section>
-    <section id="sec" class="position-relative">
-        <div class="position-absolute">
-            <div class="position-fixed bg2"></div>
-        </div>
-    </section>
-    <section id="third" class="position-relative">
-        <div class="position-absolute">
-            <div class="position-fixed bg3"></div>
-        </div>
-    </section>
-    <section id="four" class="position-relative">
-        <div class="position-absolute">
-            <div class="position-fixed bg4"></div>
-        </div>
-    </section>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        </section>
+        <section id="sec" class="position-relative">
+            <div class="position-absolute">
+                <div class="position-fixed bg2"></div>
+            </div>
+        </section>
+        <section id="third" class="position-relative">
+            <div class="position-absolute">
+                <div class="position-fixed bg3"></div>
+            </div>
+        </section>
+        <section id="four" class="position-relative">
+            <div class="position-absolute">
+                <div class="position-fixed bg4"></div>
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <script>
-        $('nav a').on('click', function () {
-            $(this).addClass('on');
-            $(this).siblings().removeAttr('class');
-        });
+        <script>
+            $('nav a').on('click', function() {
+                $(this).addClass('on');
+                $(this)
+                    .siblings()
+                    .removeAttr('class');
+            });
 
-        $("a[href^='#']").on('click',function(e){
+            $("a[href^='#']").on('click', function(e) {
                 e.preventDefault();
                 var target = $(this.hash);
                 console.log(target);
-                $('html,body').animate({scrollTop:target.offset().top},500);
-        });
-
-    </script>
-</body>
-
+                $('html,body').animate({ scrollTop: target.offset().top }, 500);
+            });
+        </script>
+    </body>
 </html>

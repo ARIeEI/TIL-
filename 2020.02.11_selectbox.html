@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>select box CSS 디자인</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            body {
+                padding: 0;
+            }
+
+            select {
+                min-width: 200px;
+                height: 40px;
+                font-size: 15px;
+                padding-left: 1%;
+                color: #ddd;
+                background: #4686e6 url('img/down_arrow.svg') no-repeat right 4px center/8%;
+                border: none;
+                border-radius: 4px;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+            select::-ms-expand {
+                opacity: 0;
+            }
+            /* ie 10,11 삭제과정 */
+            /* 디자인은 select 박스 형태만 변경 가능하고, option 쪽의 변경은 불가능하기 때문에 option 까지 변경을 원한다면 select 박스 관련 플러그인을 사용할 것을 권함. */
+
+            option,
+            optgroup {
+                background-color: #9ebff1;
+                color: #fff;
+            }
+            /* appearance특정한 폼요소를 제거하는 요소로 사용한다select의 화살표 ios 모소리가 둥근 기본 요소, 그림자요소를 없애준다던가 */
+        </style>
+    </head>
+    <body>
+        <h2>select 태그사용</h2>
+        <select name="hobby">
+            <option value="등산">등산</option>
+            <optgroup label="스포츠">
+                <option value="하키">하키</option>
+                <option value="배구" selected>배구</option>
+            </optgroup>
+            <option value="사진">사진</option>
+            <option value="그림" hidden>그림</option>
+            <option value="숨쉬기" disabled>숨쉬기</option>
+            <option value="뛰기">뛰기</option>
+        </select>
+
+        <select name="language" disabled>
+            <option value="none">===선택===</option>
+            <option value="eng">영어</option>
+            <optgroup label="한국어">
+                <option value="부산">부산</option>
+                <option value="광주">광주</option>
+                <option value="충청도">충청도</option>
+                <option value="제주도">제주도</option>
+            </optgroup>
+            <option value="ko">한국어</option>
+            <option value="spanish">스페인어</option>
+        </select>
+        <h2>ul 태그 사용</h2>
+        <section class="list_box">
+            <span class="counter" style="font-size:24px">0</span>
+            <div class="selectbox">
+                <div class="title">
+                    <span class="title__text">이건 샐랙터박스</span>
+                    <span class="arrow"></span>
+                </div>
+                <div class="popup">
+                    <ul class="list"></ul>
+                </div>
+            </div>
+        </section>
+        <style>
+            .selectbox {
+                width: 300px;
+                font-weight: blod;
+                color: #fff;
+            }
+
+            .selectbox {
+                min-width: 200px;
+            }
+
+            .title {
+                position: relative;
+                padding: 5%;
+                background-color: #74c3da;
+            }
+
+            .arrow {
+                position: absolute;
+                right: 2%;
+                top: 0;
+                display: block;
+                width: 8%;
+                height: 100%;
+                background: url('img/down_arrow.svg') no-repeat center/contain;
+                transition: all 0.2s;
+            }
+
+            .popup {
+                height: 200px;
+                overflow: auto;
+            }
+
+            li {
+                padding: 5%;
+                background: #41a3b9;
+                border-bottom: 1px solid #3d8094;
+            }
+
+            .up__side__down {
+                transform: rotate(calc(180deg));
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            // var counter = 0;
+            // $(function() {
+            //     setInterval(function() {
+            //         counter++;
+            //         $('.counter').html(counter);
+            //     }, 1000);
+            // });
+
+            // setInterval(function() {
+            //     reset(counter);
+            // }, 5000);
+            //5초마다 숫자 리셋.
+
+            $('.popup').hide();
+
+            $('.title').click(function(e) {
+                $('.popup').toggle();
+                $('.arrow').toggleClass('up__side__down');
+            });
+
+            var change = (function() {
+                var list = [];
+
+                return {
+                    //대기행렬(list)에 데이터를 입력하는 메소드
+                    enqueue: function(c) {
+                        list.push(c);
+                        //배열의 끝에 아이템을 추가한다.
+                    },
+
+                    //대기행렬(list)에 데이터를 출력하는 메소드
+                    dequeue: function() {
+                        return list.shift();
+                        //배열의 첫번째 아이템을 제거한다.
+                    },
+
+                    isEmpty: function() {
+                        return list.length === 0;
+                    }
+                };
+            })();
+
+            var data = [];
+
+            // console.time();
+
+            // for (let i = 0; i < 100; i++) {
+            //     data.push('아이템' + i);
+
+            //     //change의 enqueue: function(c) {} list 안에 data 숫자 만큼 li를 넣는 과정.
+            //     change.enqueue({
+            //         execute: function() {
+            //             const elem = createItem(data[i]);
+            //             $('.list').append(elem);
+            //         }
+            //     });
+            // }
+
+            // setInterval(function() {
+            //     for (var i = 0; i < 30 && !change.isEmpty(); i++) {
+            //         var deq = change.dequeue();
+
+            //         if (deq) {
+            //             // list의 남은 아이템
+            //             deq.execute();
+            //         }
+
+            //         if (change.isEmpty()) {
+            //             console.timeEnd();
+            //         }
+            //     }
+            // }, 0);
+
+            // 기존
+            for (var i = 0; i < data.length; i++) {
+                var elem = createItem(data[i]);
+                $('#list').append(elem);
+            }
+
+            function createItem(d) {
+                var elem = $('<li>' + d + '</li>');
+                elem.addClass('item');
+
+                elem.click(function() {
+                    $('.title')
+                        .children('.title__text')
+                        .html(d);
+                    console.log(d);
+                    $('.popup').hide();
+                    $('.arrow').toggleClass('up__side__down');
+                });
+
+                return elem;
+            }
+            console.log($('.title'));
+        </script>
+    </body>
+</html>
