@@ -1,0 +1,12 @@
+$color-blue: #000f;
+$color-red: #f00;
+$color-yellow: #ff0;
+$color-white: #fff;
+body {
+    font-size: 14px;
+    background-color: $color-white;
+}
+
+.box {
+    background-color: $color-red;
+}

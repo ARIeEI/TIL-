@@ -1,0 +1,103 @@
+%border {
+    border-radius: 10px;
+    border: 2px solid #ec268b;
+}
+@warn 'you can\'t do that';
+
+$bg-color1: #ec268b;
+$bg-color2: #43ded0;
+$bg-color3: #a162e6;
+$bg-color5: #ec268b;
+$bg-color4: #f54040;
+$darken-color: darken($bg-color5, 10%);
+$darket-shadow: darken($darken-color, 50%);
+$darket-mix: mix(#4590d0, #43ded0);
+$darket-mix: mix(#4590d0, #43ded0);
+
+@function calc-percent($target, $container) {
+    @return ($target/$container) * 100%;
+}
+//Nesting
+
+html {
+    font-size: 18px;
+}
+
+body {
+    margin: 20px;
+    background-color: $darken-color;
+}
+
+div {
+    color: #333;
+    padding: 20px;
+}
+
+a {
+    display: inline-block;
+    margin: 10px 0px;
+    text-decoration: none;
+}
+
+#box1 {
+    & {
+        @extend %border;
+        width: calc-percent(650px, 1000px);
+        font-size: 40px;
+        background-color: $darket-mix;
+        box-shadow: 0 3px 11px 1px $darket-shadow;
+    }
+    & > a {
+        color: #fff;
+        &:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+    }
+    &:hover {
+        background-color: #ccc;
+        @media screen and (max-width: 500px) {
+            background-color: #999;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 20px;
+    }
+
+    @media screen and (min-width: 501px) and (max-width: 900px) {
+        font-size: 24px;
+    }
+}
+
+#box1 #box2 {
+    @extend %border;
+    font-size: 20px;
+    background-color: #e9e9e9;
+    box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+
+    & > a {
+        color: #ee6634;
+
+        &:hover {
+            color: #a22;
+            text-decoration: underline;
+        }
+    }
+}
+
+/* sass nesting 방법 답은 없음.
+.box1 .box2 .box3 {
+}
+
+.box1 {
+    .box2 {
+        .box3 {
+        }
+    }
+}
+
+.box1 {
+    .box2 .box3 {
+    }
+}
+*/

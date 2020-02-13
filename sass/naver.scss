@@ -1,0 +1,65 @@
+@charset "uft-8";
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+img {
+    border: none;
+}
+
+header a {
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.hide {
+    font-size: 0;
+}
+
+header {
+    background: #03c75a;
+    h1 {
+        font-size: 0;
+    }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        vertical-align: middle;
+    }
+
+    & .logo {
+        width: 48px;
+        height: 48px;
+        background: rgba(0, 0, 0, 0.1) url(../img/naver/home_logo_naver.svg) no-repeat center/18px auto;
+    }
+
+    .cafe {
+        font-size: 20px;
+        color: #fff;
+        padding-left: 10px;
+        line-height: 48px;
+    }
+
+    &__btn {
+        .create {
+            height: 22px;
+            line-height: 22px;
+            font-size: 10px;
+            color: #fff;
+            padding: 0 7px;
+            border: 1px solid #fff;
+            text-align: center;
+            border-radius: 22px;
+        }
+
+        .search {
+            width: 22px;
+            height: 22px;
+            background: url(../img/gnb_icon_search.svg) no-repeat center/ 16px auto;
+        }
+    }
+}
