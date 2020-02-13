@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .line__box {
+                float: left;
+                position: relative;
+                width: 20%;
+                height: 400px;
+                line-height: 400px;
+                border: 2px solid #8f8f8f;
+                box-sizing: border-box;
+                margin: 3%;
+            }
+
+            [class^='box__'] {
+                position: absolute;
+                background-color: gold;
+                transition: all 0.2s linear;
+            }
+
+            .box__line1 {
+                width: 0px;
+                height: 2px;
+                top: -2px;
+                left: -2px;
+            }
+
+            .box__line2 {
+                width: 2px;
+                height: 0px;
+                right: -2px;
+                top: 0;
+            }
+
+            .box__line3 {
+                width: 0px;
+                height: 2px;
+                bottom: -2px;
+                right: 0;
+            }
+
+            .box__line4 {
+                width: 2px;
+                height: 0px;
+                bottom: 0;
+                left: -2px;
+            }
+            /* none,block은 동작은 animation 동작이 안된다. */
+
+            .line__box:hover .box__line1 {
+                width: 100%;
+                padding-right: 4px;
+            }
+
+            .line__box:hover .box__line2 {
+                height: 100%;
+                padding-top: 2px;
+            }
+
+            .line__box:hover .box__line3 {
+                width: 100%;
+                padding-left: 2px;
+                /* box모델특성상 %와 padding px 이 적용된 경우 두 개의 값이 합쳐진다. */
+            }
+
+            .line__box:hover .box__line4 {
+                height: 100%;
+                padding-bottom: 2px;
+            }
+
+            .box2 .box__line1 {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .box2 .box__line2 {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .box2 .box__line3 {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .box2:hover .box__line3 {
+                padding-left: 4px;
+            }
+
+            .box2 .box__line4 {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .box3 .box__line1 {
+                left: 30%;
+                transform: translateX(-30%);
+            }
+
+            .box3 .box__line2 {
+                top: 30%;
+                transform: translateY(-30%);
+            }
+
+            .box3 .box__line3 {
+                right: 30%;
+                transform: translateX(30%);
+            }
+
+            .box3 .box__line4 {
+                bottom: 30%;
+                transform: translateY(30%);
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>
+                <div class="line__box box1">
+                    <span class="box__line1"></span>
+                    <span class="box__line2"></span>
+                    <span class="box__line3"></span>
+                    <span class="box__line4"></span>
+                    box1
+                </div>
+            </li>
+            <li>
+                <div class="line__box box2">
+                    <span class="box__line1"></span>
+                    <span class="box__line2"></span>
+                    <span class="box__line3"></span>
+                    <span class="box__line4"></span>
+                    box2
+                </div>
+            </li>
+            <li>
+                <div class="line__box box3">
+                    <span class="box__line1"></span>
+                    <span class="box__line2"></span>
+                    <span class="box__line3"></span>
+                    <span class="box__line4"></span>
+                    box3
+                </div>
+            </li>
+        </ul>
+    </body>
+</html>
