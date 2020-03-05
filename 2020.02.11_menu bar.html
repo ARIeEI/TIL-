@@ -216,17 +216,78 @@
             });
 
             $("a[href^='#']").on('click', function(e) {
+                console.log($(window).scrollTop());
+                console.log($('section').innerHeight());
                 e.preventDefault();
                 var target = $(this.hash);
                 var target_children = target.find('.position-fixed');
                 var $this = target;
                 $('html,body').animate({ scrollTop: target.offset().top }, 500);
                 target_children.prepend($('<div style="position:relative" class="box_wrap"><div class="main_box"></div></div>'));
-                $this.find('.main_box').addClass('red_box');
 
                 target_children.find().removeAttr('<div>');
-                console.log(target_children);
+                // console.log(target_children);
             });
+
+            //wheel event
+            // $(function() {
+            //     var page = $('.section');
+            //     page.each(function(index) {
+            //         if ($(window).width() >= 1024) {
+            //             $(this).on('mousewheel DOMMouseScroll', function(e) {
+            //                 // console.log(e.originalEvent.wheelDelta);
+            //                 e.preventDefault();
+            //                 e.stopPropagation();
+
+            //                 var delta = 0;
+            //                 if (!event) {
+            //                     event = window.event;
+            //                 }
+            //                 if (event.wheelDelta) {
+            //                     delta = event.wheelDelta / 120;
+            //                     // console.log(delta);
+            //                     //delta = -1 or 1
+            //                 } else if (event.detail) {
+            //                     delta = -event.detail / 3;
+            //                     // console.log(event.detail);
+            //                     //delta = -1 or 1
+            //                 }
+            //                 var move_top = $(window).scrollTop();
+            //                 var page_selector = page.eq(index);
+            //                 if (delta < 0) {
+            //                     if (page_selector.next() != undefined) {
+            //                         try {
+            //                             move_top = page_selector.next().offset().top;
+            //                             console.log(move_top);
+            //                         } catch (e) {}
+            //                     }
+            //                 } else {
+            //                     if (page_selector.prev() != undefined) {
+            //                         try {
+            //                             move_top = page_selector.prev().offset().top;
+            //                         } catch (e) {}
+            //                     }
+            //                 }
+            //                 $('html,body')
+            //                     .stop()
+            //                     .animate(
+            //                         {
+            //                             scrollTop: move_top + 'px'
+            //                         },
+            //                         {
+            //                             duration: 500
+            //                         }
+            //                     );
+            //             });
+            //         } else {
+            //             $(this).on('touchstart', function(e) {
+            //                 e.preventDefault();
+            //                 var touches = e.changedtouches;
+            //                 console.
+            //             });
+            //         }
+            //     });
+            // });
         </script>
     </body>
 </html>
