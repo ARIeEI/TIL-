@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <style>
+            input[type='checkbox'] {
+                position: absolute;
+                left: -30000%;
+            }
+            .checkbox_ckecked {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .checkbox_ckecked:before {
+                position: relative;
+                content: '';
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin: 0 4px 0 0;
+                border: 1px solid #ddd;
+                vertical-align: middle;
+                border-radius: 4px;
+                transition: all 0.3s;
+            }
+
+            input[type='checkbox']:checked + .checkbox_ckecked:before {
+                background: #555;
+            }
+
+            input[type='checkbox'] + .checkbox_ckecked:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 22px;
+                height: 22px;
+                background: url(img/down_arrow.svg) no-repeat center;
+                background-size: 0;
+
+                transition: all 0.3s 0.2s;
+            }
+
+            input[type='checkbox']:checked + .checkbox_ckecked:after {
+                background-size: 22px auto;
+            }
+        </style>
+        <input type="checkbox" id="one" />
+        <label class="checkbox_ckecked" for="one">체크박스</label>
+
+        <input id="btn1" type="radio" />
+        <label for="btn1"></label>
+    </body>
+</html>

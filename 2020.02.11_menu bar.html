@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>menu bar</title>
         <style>
             * {
                 margin: 0;
@@ -158,6 +158,13 @@
                 width: 100%;
                 height: 100%;
             }
+
+            .red_box {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
         </style>
     </head>
 
@@ -197,6 +204,10 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
         <script>
+            $(window).on('hashchange', function() {
+                alert('no');
+            });
+
             $('nav a').on('click', function() {
                 $(this).addClass('on');
                 $(this)
@@ -207,8 +218,14 @@
             $("a[href^='#']").on('click', function(e) {
                 e.preventDefault();
                 var target = $(this.hash);
-                console.log(target);
+                var target_children = target.find('.position-fixed');
+                var $this = target;
                 $('html,body').animate({ scrollTop: target.offset().top }, 500);
+                target_children.prepend($('<div style="position:relative" class="box_wrap"><div class="main_box"></div></div>'));
+                $this.find('.main_box').addClass('red_box');
+
+                target_children.find().removeAttr('<div>');
+                console.log(target_children);
             });
         </script>
     </body>
