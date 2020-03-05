@@ -1,0 +1,23 @@
+{
+    "prettier.printWidth": 140,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "sourse.fixAll.eslint": true
+    },
+    "liveSassCompile.settings.formats": [
+        // This is Default.
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/css"
+            //"savePath": "~/../style"
+            //savePath가 css 정장되는 경로. '/'는 현재 프로잭트를 의미함.
+            //'~' 은 sass 폴더를 나타내는 것.
+        }
+    ],
+    "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
+    "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+    "liveSassCompile.settings.generateMap": true
+}

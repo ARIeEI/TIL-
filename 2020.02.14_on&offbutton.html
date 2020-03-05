@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>button</title>
+    </head>
+    <body>
+        <style>
+            body {
+                padding: 50px;
+            }
+
+            input {
+                position: absolute;
+                left: -3000px;
+            }
+
+            input + label {
+                position: relative;
+                display: inline-block;
+                margin: 20px auto;
+
+                width: 200px;
+                height: 50px;
+                font-size: 28px;
+                line-height: 50px;
+                border-radius: 100px;
+                background-color: #749dff;
+                transition: all 0.4s;
+                overflow: hidden;
+            }
+
+            input + label:before,
+            input + label:after {
+                position: absolute;
+                top: 2px;
+                color: #fff;
+                line-height: 46px;
+                transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+            input + label:before {
+                content: '';
+                right: 2px;
+                width: 46px;
+                height: 46px;
+            }
+
+            .chk + label:before {
+                content: 'ON';
+                text-indent: -140px;
+                border-radius: 50px;
+                background-color: #183bad;
+                /* transition, animation은 속성이 같아야지 작동한다. */
+            }
+
+            .chk + label:after {
+                content: 'OFF';
+                right: -100px;
+                /* transition, animation은 속성이 같아야지 작동한다. */
+            }
+
+            .chk:checked + label:after {
+                right: 10px;
+            }
+
+            .chk:checked + label:before {
+                right: 152px;
+                background-color: #cc1616;
+            }
+
+            .chk:checked + label {
+                background-color: #ff5353;
+            }
+
+            .click__bar {
+                background-color: crimson;
+            }
+
+            .click__bar:before {
+                background-color: #000;
+                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                border-radius: 50px;
+            }
+
+            input.click:checked + .click__bar:before {
+                right: 152px;
+            }
+
+            .click__bar span {
+                position: reiative;
+                color: #fff;
+                mix-blend-mode: difference;
+            }
+
+            .click__bar span:before {
+                content: 'ON';
+                position: absolute;
+                left: 6px;
+                top: 0;
+                transition: all 0.5s;
+            }
+
+            .click:checked + .click__bar span:before {
+                left: 100%;
+            }
+
+            .click__bar span:after {
+                content: 'OFF';
+                position: absolute;
+                left: -100px;
+                top: 0;
+                transition: all 0.3s;
+            }
+
+            .click:checked + .click__bar span:after {
+                left: 6px;
+            }
+
+            .btn {
+                position: relative;
+                padding: 10px 44px;
+                margin: 20px auto;
+                border: none;
+                font-size: 36px;
+            }
+
+            .btn:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 30%;
+                height: 100%;
+                background-color: #000;
+                transition: all 0.5s cubic-bezier(0.68, -0.65, 0.265, 1.5);
+            }
+
+            .btn:hover:before {
+                width: 100%;
+                height: 100%;
+            }
+
+            .btn-text {
+                color: #fff;
+                mix-blend-mode: difference;
+            }
+
+            .round {
+                border-radius: 50px;
+                background-color: #fff;
+                /* background-color: #ff5353; */
+            }
+
+            .text-green {
+                color: aqua;
+                mix-blend-mode: multiply;
+                /* mix-blend-mode: difference; */
+            }
+            .round:before {
+                width: 25%;
+                height: 100%;
+                border-radius: 50px;
+                background-color: #ff5353;
+            }
+        </style>
+        <input id="chk" class="chk" type="checkbox" />
+        <label for="chk"></label>
+
+        <input id="click_2" class="click" type="checkbox" />
+        <label class="click__bar" for="click_2">
+            <span></span>
+        </label>
+
+        <button class="btn">
+            <span class="btn-text">Hover ME</span>
+        </button>
+        <button class="btn round">
+            <span class="text-green">Hover ME</span>
+        </button>
+    </body>
+</html>

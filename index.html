@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>2020.02.14</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            .section--relative {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+                min-height: 100vh;
+            }
+
+            .section_bg_wrap--absolute {
+                clip: rect(0, auto, auto, 0);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .bg--fixed {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center center;
+                transform: translateZ(0);
+            }
+
+            .image_01 {
+                background-image: url(img/clip_01.jpg);
+            }
+            .image_02 {
+                background-image: url(img/clip_02.jpg);
+            }
+            .image_03 {
+                background-image: url(img/clip_03.jpg);
+            }
+            .image_04 {
+                background-image: url(img/clip_04.jpg);
+            }
+            .image_05 {
+                background-image: url(img/clip_05.jpg);
+            }
+
+            .text {
+                padding: 0 10%;
+                text-align: center;
+                font-size: 3rem;
+                color: #eee;
+            }
+
+            .buttom {
+                width: 800px;
+                height: 500px;
+                margin: 0 auto;
+                background-color: aqua;
+                background: url(img/clip_04.jpg) no-repeat center/cover;
+            }
+
+            .what {
+                height: 300px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="section--relative">
+            <div class="section_bg_wrap--absolute">
+                <div class="bg--fixed image_01">
+                    <div class="text">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, maxime. Harum est atque nobis reiciendis, iure
+                        fugiat tenetur odio explicabo voluptatum voluptate distinctio eius illo porro esse rem doloribus quidem!
+                    </div>
+                    <div class="buttom"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section--relative">
+            <div class="section_bg_wrap--absolute">
+                <div class="bg--fixed image_02"></div>
+            </div>
+        </div>
+
+        <div class="section--relative">
+            <div class="section_bg_wrap--absolute">
+                <div class="bg--fixed image_03"></div>
+            </div>
+        </div>
+
+        <div class="section--relative">
+            <div class="section_bg_wrap--absolute">
+                <div class="bg--fixed image_04"></div>
+            </div>
+        </div>
+
+        <div class="section--relative what">
+            <div class="section_bg_wrap--absolute">
+                <div class="bg--fixed image_05"></div>
+            </div>
+        </div>
+    </body>
+</html>

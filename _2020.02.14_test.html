@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>header</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+            body {
+                background: linear-gradient(to right, #002762, #005693);
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .left {
+                float: left;
+            }
+
+            .right {
+                float: right;
+            }
+
+            .clear {
+                clear: both;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            header a {
+                color: #fff;
+            }
+
+            header nav a {
+                position: relative;
+                font-size: 17px;
+                font-weight: bold;
+            }
+
+            header nav a:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 14px;
+                width: 0;
+                height: 1px;
+                display: block;
+                background-color: #fff;
+                transition: all 0.3s;
+            }
+
+            header nav a:hover:before {
+                width: 100%;
+            }
+
+            h1 {
+                padding-right: 180px;
+            }
+            h1 a {
+                display: block;
+                width: 132px;
+                height: 50px;
+                background: url(img/naver/layout.png) no-repeat -170px -70px;
+                font-size: 0;
+                color: transparent;
+            }
+            nav li {
+                float: left;
+                padding-right: 30px;
+            }
+
+            nav a {
+                display: block;
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .pc__none {
+                display: none;
+            }
+
+            .wrap {
+                padding: 43px 0 0 73px;
+            }
+
+            .right {
+                padding: 50px 40px 0 0;
+            }
+
+            .right li {
+                float: left;
+                margin-left: -1px;
+            }
+
+            .right a {
+                display: block;
+                width: 96px;
+                height: 38px;
+                line-height: 38px;
+                text-align: ceter;
+                flex: 11px;
+                border: 1px solid rgba(225, 225, 225, 0.5);
+                text-align: center;
+            }
+
+            .right li:hover a {
+                background: #fff;
+                color: #000;
+            }
+
+            .last {
+                background-color: rgba(225, 225, 225, 0.3);
+                margin-left: 10px;
+                border-radius: 3px;
+            }
+
+            .one {
+                border-radius: 3px 0 0 3px;
+            }
+            .two {
+                border-radius: 0 3px 3px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="clear">
+            <div class="wrap left">
+                <h1 class="left"><a href="#">logo</a></h1>
+                <a href="#" class="pc__none">all menu</a>
+                <div class="nav__wrap left">
+                    <h2 class="hide">menu</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Hdac</a></li>
+                            <li><a href="#">Network</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Resources</a></li>
+                        </ul>
+                    </nav>
+                    <div class="left pc__none">
+                        <a href="#">White Pater</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                    <a href="#" class="close pc__none">close</a>
+                </div>
+            </div>
+            <ul class="right">
+                <li><a href="#" class="one">White Pater</a></li>
+                <li><a href="#" class="two">FAQ</a></li>
+                <li><a href="#" class="last">Sign In</a></li>
+            </ul>
+        </header>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </body>
+</html>
