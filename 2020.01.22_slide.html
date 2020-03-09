@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS slide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .slide {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    ul {
+      width: 400%;
+      height: 100%;
+      transition: 0.3s;
+    }
+
+    ul:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    li {
+      float: left;
+      width: 25%;
+      height: 100%;
+    }
+/* li의 width 를 25% 준 이유는 %는 부모의 크기를 상속받는다.
+부모인 ul의 width가 400% 이기 때문에li에 width100%를 주면 하니의 li가 ul전체를 감쌈. */
+    li:nth-child(1) {
+      background-color: bisque;
+    }
+
+    li:nth-child(2) {
+      background-color: #ffa;
+    }
+
+    li:nth-child(3) {
+      background-color: #faa;
+    }
+
+    li:nth-child(4) {
+      background-color: #faF;
+    }
+
+    li:nth-child(5) {
+      background-color: #aaf;
+    }
+
+    .one input {
+      display: none;
+    }
+
+    .one .pos {
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .one label {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background-color: #fafafa;
+      vertical-align: middle;
+      text-indent: -9999px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .one #slide1:checked~ul {
+      margin-left: 0;
+    }
+
+    .one #slide2:checked~ul {
+      margin-left: -100%;
+    }
+
+    .one #slide3:checked~ul {
+      margin-left: -200%;
+    }
+
+    .one #slide4:checked~ul {
+      margin-left: -300%;
+    }
+
+    .one #slide1:checked~.pos>label:first-child {
+      background: brown;
+    }
+
+    .one #slide2:checked~.pos>label:nth-child(2) {
+      background: brown;
+    }
+
+    .one #slide3:checked~.pos>label:nth-child(3) {
+      background: brown;
+    }
+
+    .one #slide4:checked~.pos>label:nth-child(4) {
+      background: brown;
+    }
+
+    .two .slide{
+      height:300px;
+      overflow:hidden;
+    }
+
+    .two ul {
+      height:calc(100% * 5);
+      animation:scrollTop 8s infinite;
+    }
+
+    .two li {
+      float:none;
+      height:calc(100%/5);
+    }
+
+
+    @keyframes scrollTop {
+      0{
+        margin-top:0;
+      }
+      20%{
+        margin-top:-300px;
+      }
+      40%{
+        margin-top:-600px;
+      }
+      60% {
+        margin-top:-900px;
+      }
+      80% {
+        margin-top:-1200px;
+      }
+      100%{
+        margin-top:0;
+      }
+      /* margin은 부모의 width를 상속받는다. height를 상속받는 것이 아님.
+      그렇게 때문에 px로 나눔.*/
+    }
+    
+    .three ul {
+      width:500%;
+      animation:scrollLeft 8s infinite;
+    }
+
+    .three li {
+      width:20%;
+    }
+
+    @keyframes scrollLeft {
+      0{
+        margin-left:0;
+      }
+      20%{
+        margin-left:-100%;
+      }
+      40%{
+        margin-left:-200%;
+      }
+      60% {
+        margin-left:-300%;
+      }
+      80% {
+        margin-left:-400%;
+      }
+      100%{
+        margin-left:0;
+      }
+    }
+
+    .four ul{
+      position: relative;
+      height:100%;
+    }
+
+    .four li{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      height:100%;
+      opacity:0;
+      animation:fade 10s infinite;
+    }
+
+    .four li:nth-child(1){
+      animation-delay:0s;
+    }
+    .four li:nth-child(2){
+      animation-delay:2s;
+    }
+    .four li:nth-child(3){
+      animation-delay:4s;
+    }
+    .four li:nth-child(4){
+      animation-delay:6s;
+    }
+    .four li:nth-child(5){
+      animation-delay:8s;
+    }
+
+    @keyframes fade {
+      0% {opacity:0;}
+      /* 5 */
+      5% {opacity:1;}
+      /* 20 */
+      25% {opacity:1;}
+      /* 5 */
+      30% {opacity:0;}
+      /* 70 */
+      100% {opacity:0;}
+    }
+    /* kkeyframes 안에 들어가는 100% 는 시간과는 상관이 없다. li에 직접 줬기 때문
+    animation 의 s시간과 delay 시간만 잘 지정하면 된다. */
+  </style>
+</head>
+
+<body>
+  <section class="one">
+    <h1>CSS slide</h1>
+    <div class="slide">
+      <input type="radio" name="slide_ball" id="slide1" checked>
+      <input type="radio" name="slide_ball" id="slide2">
+      <input type="radio" name="slide_ball" id="slide3">
+      <input type="radio" name="slide_ball" id="slide4">
+      <ul>
+        <li>slide1</li>
+        <li>slide2</li>
+        <li>slide3</li>
+        <li>slide4</li>
+      </ul>
+      <p class="pos">
+        <label for="slide1">1</label>
+        <label for="slide2">2</label>
+        <label for="slide3">3</label>
+        <label for="slide4">4</label>
+      </p>
+    </div>
+  </section>
+  <section class="two">
+    <h1>css slide 세로</h1>
+    <div class="slide">
+      <ul>
+        <li>slide1</li>
+        <li>slide2</li>
+        <li>slide3</li>
+        <li>slide4</li>
+        <li>slide5</li>
+      </ul>
+    </div>
+  </section>
+  <section class="three">
+    <h1>css slide 가로</h1>
+    <div class="slide">
+      <ul>
+        <li>slide1</li>
+        <li>slide2</li>
+        <li>slide3</li>
+        <li>slide4</li>
+        <li>slide5</li>
+      </ul>
+    </div>
+  </section>
+  <section class="four">
+    <h1>css slide fade</h1>
+    <div class="slide">
+      <ul>
+        <li>slide1</li>
+        <li>slide2</li>
+        <li>slide3</li>
+        <li>slide4</li>
+        <li>slide5</li>
+      </ul>
+    </div>
+  </section>
+</body>
+
+</html>
