@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>상하스크롤</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            [class*='bg'] {
+                width: 100%;
+                height: 100vh;
+            }
+
+            .bg1 {
+                background-image: url(img/menu_bg.jpg);
+            }
+
+            .bg2 {
+                background-image: url(img/menu_bg5.jpg);
+            }
+
+            .bg3 {
+                background-image: url(img/menu_bg6.jpg);
+            }
+
+            .bg4 {
+                background-image: url(img/menu_bg3.jpg);
+            }
+
+            .bg5 {
+                background-image: url(img/menu_bg2.jpg);
+            }
+
+            .bgfooter {
+                height: 50%;
+                background: aquamarine;
+            }
+        </style>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(function() {
+                    var page = $('[class^="bg"]');
+                    page.each(function(index) {
+                        $this = $(this);
+                        $this.on('mousewheel DOMMouseScroll', function(e) {
+                            e.preventDefault();
+                            // console.log(e.originalEvent.wheelDelta);
+                            // console.log(e.originalEvent.detail);
+
+                            var delta = 0;
+                            if (!event) {
+                                event = window.event;
+                            }
+
+                            //wheelDelta, detail pagedown -1 pageup 1 로 통일
+                            if (event.wheelDelta) {
+                                delta = event.wheelDelta / 120;
+                            } else if (event.detail) {
+                                delta = -event.detail / 3;
+                            }
+                            // console.log(delta);
+
+                            var move_top = $(window).scrollTop();
+                            var this_page = page.eq(index);
+
+                            console.log(this_page);
+                            console.log(this_page.next());
+                            // console.log(page.eq(index));
+
+                            if (delta < 0) {
+                                if (this_page.next() != undefined) {
+                                    try {
+                                        move_top = this_page.next().offset().top;
+                                    } catch (e) {}
+                                } else if (this_page.next() == undefined) {
+                                    alert('noooo');
+                                    // try {
+                                    //     move_top = $('.footer').offset().top;
+                                    // } catch (e) {}
+                                }
+                            } else if (delta > 0) {
+                                if (this_page.prev() != undefined) {
+                                    try {
+                                        move_top = this_page.prev().offset().top;
+                                    } catch (e) {}
+                                }
+                            }
+
+                            $('html,body')
+                                .stop()
+                                .animate(
+                                    {
+                                        scrollTop: move_top
+                                    },
+                                    {
+                                        duration: 500
+                                    },
+                                    {
+                                        easing: 'ease-in-out'
+                                    }
+                                );
+                            //
+                        });
+                    });
+                });
+
+                // footer 나오고 bg5 로 올라가는 기능 추가 하고 싶다.
+            });
+        </script>
+    </head>
+    <body>
+        <div class="bg1"></div>
+        <div class="bg2"></div>
+        <div class="bg3"></div>
+        <div class="bg4"></div>
+        <div class="bg5"></div>
+        <footer class="bgfooter"></footer>
+    </body>
+</html>
