@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <article></article>
+
+        <input
+            type="button"
+            value="fetch"
+            onclick="
+            fetch('2020.03.11_좌우스크롤').then(function(response){
+                response.text().then(function(text){
+                    document.querySelector('article').innerHTML = text;
+                    // alert(text);
+                    //모든 작업이 끝난후 호출된다.
+                    //text 안에 서버가 응답한 데이터가 들어가 있는 곳.
+                })
+            })
+            // function callbackme(){
+            //     console.log('respense end');
+            // };
+            // fetch('html').then(function(response){
+            //     console.log(response);
+
+            // });
+            "
+        />
+    </body>
+</html>
