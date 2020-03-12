@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Fetch</title>
     </head>
     <body>
         <article></article>
@@ -12,20 +12,30 @@
             type="button"
             value="fetch"
             onclick="
-            fetch('2020.03.11_좌우스크롤').then(function(response){
+            fetch('https://arieei.github.io/TIL-/index.html').then(function(response){
                 response.text().then(function(text){
                     document.querySelector('article').innerHTML = text;
+                    if(response.status === 200){
+                        alert('good');
+                    }else {
+                        alert('false');
+                    }
+
+                    console.log(response);
+                    console.log(response.status);
                     // alert(text);
                     //모든 작업이 끝난후 호출된다.
                     //text 안에 서버가 응답한 데이터가 들어가 있는 곳.
-                })
-            })
+                });
+            });
+            console.log(1);
+            console.log(2);
             // function callbackme(){
             //     console.log('respense end');
             // };
+
             // fetch('html').then(function(response){
             //     console.log(response);
-
             // });
             "
         />
