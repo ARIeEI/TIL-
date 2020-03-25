@@ -129,5 +129,11 @@
                 });
             });
         });
+
+        var alert_set_time = setInterval(function() {
+            alert('2초 후 한번 실행됩니다.');
+        }, 2000);
+
+        clearTimeout(alert_set_time);
     </script>
 </html>

@@ -57,5 +57,18 @@
 
         <input id="btn1" type="radio" />
         <label for="btn1"></label>
+        <ul class="gacha">
+            <li>asd</li>
+            <li>dddd</li>
+            <li>ssss</li>
+        </ul>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            $('.gacha').on('click', 'li', function() {
+                $(event.target).remove();
+            });
+            $('.gacha').prepend('<li>1.추가사항</li>');
+            $('.gacha').append('<li>last 추가사항</li>');
+        </script>
     </body>
 </html>

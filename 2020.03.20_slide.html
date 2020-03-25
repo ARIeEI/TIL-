@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            section {
+                position: relative;
+                width: 50%;
+                height: 50%;
+            }
+
+            img {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+
+            .none {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <img src="img/clip_01.jpg" />
+            <img class="none" src="img/clip_02.jpg" />
+            <img class="none" src="img/clip_03.jpg" />
+        </section>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script>
+            var section = $('section');
+            var active_slide = setInterval(function() {
+                var frist_img = section.children().eq(0);
+                var sec_img = section.children().eq(1);
+
+                frist_img.fadeOut();
+                section.append(frist_img);
+                sec_img.fadeIn();
+            }, 1000);
+
+            section.hover(
+                function() {
+                    clearInterval(active_slide);
+                    console.log('stop');
+                },
+                function() {
+                    active_slide;
+                    console.log('go');
+                }
+            );
+        </script>
+    </body>
+</html>
